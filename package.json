@@ -1,0 +1,18 @@
+{
+  "name": "webpack-weapp",
+  "version": "1.0.0",
+  "description": "A wechat-mini-program built with webpack.",
+  "main": "app.js",
+  "author": "sunnie",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
