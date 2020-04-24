@@ -16,7 +16,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.2",
 	"appid": "wx964c60a9f3689cdf",
-	"projectname": "miniprogram-test-1",
+	"projectname": "weapp-webpack",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
