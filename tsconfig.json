@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    // 这可以对 `this` 上的数据属性进行更严格的推断
+    "strict": true,
+    // 如果使用 webpack 2+ 或 rollup，可以利用 tree-shake:
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "types": ["./typings"],
+    "typeRoots": [
+      "./typings"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "config"
+  ],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
