@@ -1,11 +1,6 @@
 {
   "pages": ["pages/index/index", "pages/logs/logs"],
-  "subpackages": [
-    {
-      "root": "packageA",
-      "pages": ["pages/cat"]
-    }
-  ],
+
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
