@@ -1,14 +1,11 @@
-const {
-  resolve
-} = require('path')
+const {resolve} = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const {
-  CleanWebpackPlugin
-} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MinaWebpackPlugin = require('./plugin/MinaWebpackPlugin')
+// const MinaEntryWebpackPlugin = require('./plugin/MinaEntryWebpackPlugin')
 const HellowPlugin = require('./plugin/HellowPlugin')
-const WxRuntimePlugin = require('./plugin/WxRuntimePlugin');
-const webpack = require('webpack');
+const WxRuntimePlugin = require('./plugin/WxRuntimePlugin')
+const webpack = require('webpack')
 console.log('构建环境：' + process.env.NODE_ENV)
 module.exports = {
   context: resolve('src'),
@@ -16,17 +13,18 @@ module.exports = {
   output: {
     path: resolve('dist'),
     filename: '[name].js',
-    globalObject: 'wx', //TODO: 后续根据项目环境置换为qq小程序全局对象
+    globalObject: 'wx' //TODO: 后续根据项目环境置换为qq小程序全局对象
   },
   resolve: {
     modules: ['node_modules'],
     extensions: ['.ts', '.js'],
     alias: {
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js*/,
         include: [resolve('src'), resolve('test')],
         use: 'babel-loader'
@@ -41,7 +39,7 @@ module.exports = {
             loader: 'awesome-typescript-loader',
             options: {
               // errorsAsWarnings: true,
-              useCache: true,
+              useCache: true
             }
           }
         ]
@@ -49,23 +47,25 @@ module.exports = {
       {
         test: /\.(sc|c|wx)ss$/,
         include: /src/,
-        use: [{
+        use: [
+          {
             loader: 'file-loader',
             options: {
               useRelativePath: true,
               name: '[path][name].wxss',
-              context: resolve('src'),
-            },
+              context: resolve('src')
+            }
           },
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [resolve('src', 'styles'), resolve('src')],
+              sassOptions: {
+                includePaths: [resolve('src', 'styles'), resolve('src')]
+              }
             }
-          },
-        ],
-      },
-
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -78,37 +78,38 @@ module.exports = {
       cleanStaleWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: ['dist']
     }),
-    new CopyWebpackPlugin([{
-      from: '**/*',
-      to: './',
-      ignore: ['**/*.js', '**/*.scss', '**/*.ts']
-    }, ]),
     new MinaWebpackPlugin({
       scriptExtensions: ['.js', '.ts'],
-      assetExtensions: ['.scss'],
+      assetExtensions: ['.scss']
     }),
-    new WxRuntimePlugin(),
-    new HellowPlugin()
+    new CopyWebpackPlugin([
+      {
+        from: '**/*',
+        to: './',
+        ignore: ['**/*.js', '**/*.scss', '**/*.ts']
+      }
+    ]),
+    new WxRuntimePlugin()
+    // new HellowPlugin()
   ],
   optimization: {
     splitChunks: {
       chunks: 'all',
       name: 'common',
       minChunks: 2,
-      minSize: 0,
+      minSize: 0
     },
-    runtimeChunk: { //单独生成runtime.js 缩小体积
-      name: 'runtime',
+    runtimeChunk: {
+      //单独生成runtime.js 缩小体积
+      name: 'runtime'
     }
   }
 }
 
-
-
 /**
  * TODO: 1打包环境压缩  dev pro
- * 
- * 
+ *
+ *
  * 2.oos
- *  
+ *
  * */

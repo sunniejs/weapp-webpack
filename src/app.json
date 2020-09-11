@@ -7,6 +7,12 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+  "subPackages": [
+    {
+      "root": "packAccount/",
+      "pages": ["index/index"]
+    }
+  ],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

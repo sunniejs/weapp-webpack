@@ -19,19 +19,10 @@ function _inflateEntries(entries = [], dirname, entry) {
   const content = fs.readFileSync(configFile, 'utf8')
   const config = JSON.parse(content)
 
-  ;['pages', 'usingComponents', 'subPackages'].forEach(key => {
+  ;['pages', 'usingComponents'].forEach(key => {
     const items = config[key]
     if (typeof items === 'object') {
-      Object.values(items).forEach(item => {
-        if (item.root) {
-          Object.values(item.pages).map(sitem => {
-            let subPath = item.root + '/' + sitem
-            inflateEntries(entries, dirname, subPath)
-          })
-        } else {
-          inflateEntries(entries, dirname, item)
-        }
-      })
+      Object.values(items).forEach(item => inflateEntries(entries, dirname, item))
     }
   })
 }
@@ -64,38 +55,22 @@ function all(entry, extensions) {
   }
   return items
 }
-function getItems(context, entry) {
-  return Promise.resolve(path.resolve(context, entry))
-    .then(getConfigAsync)
-    .then(getItemsFromConfig)
-    .then(entries => {
-      console.log(entries)
-      if (entries.length === 0) {
-        return urlToRequest(entry)
-      }
-      return Promise.all([Promise.resolve(entry), ...entries.map(entry => getItems(context, entry))])
-    })
-}
+
 class MinaWebpackPlugin {
   constructor(options = {}) {
-    this.scriptExtensions = options.scriptExtensions || ['.ts', '.js', '.wxml']
+    this.scriptExtensions = options.scriptExtensions || ['.ts', '.js']
     this.assetExtensions = options.assetExtensions || []
     this.entries = []
   }
 
   applyEntry(compiler, done) {
-    const {context, entry} = compiler.options
+    const {context} = compiler.options
 
-    // assume the latest file in array is the app.js
-    if (Array.isArray(entry)) {
-      entry = entry[entry.length - 1]
-    }
-    //  src 文件夹
-    getItems(context, entry)
     this.entries
       .map(item => first(item, this.scriptExtensions))
       .map(item => path.relative(context, item))
       .forEach(item => itemToPlugin(context, './' + item, replaceExt(item, '')).apply(compiler))
+
     // 把所有的非 js 文件都合到同一个 entry 中，交给 MultiEntryPlugin 去处理
     const assets = this.entries.reduce((items, item) => [...items, ...all(item, this.assetExtensions)], []).map(item => './' + path.relative(context, item))
     itemToPlugin(context, assets, assetsChunkName).apply(compiler)
@@ -107,7 +82,9 @@ class MinaWebpackPlugin {
 
   apply(compiler) {
     const {context, entry} = compiler.options
+
     inflateEntries(this.entries, context, entry)
+
     compiler.hooks.entryOption.tap('MinaWebpackPlugin', () => {
       this.applyEntry(compiler)
       return true

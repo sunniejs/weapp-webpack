@@ -5,7 +5,6 @@
       昵称
     </button>
     <block wx:else>
-      <avator></avator>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "avator": "../../components/avator/avator"
+  }
+}
