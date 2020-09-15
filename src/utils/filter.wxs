@@ -1,0 +1,11 @@
+module.exports = {
+    formatDiscount: formatDiscount
+}
+/**
+ * 折扣
+ * @param {Number} num 金额
+ * @returns {String}} 返回折扣
+ */
+function formatDiscount(num) {
+    return parseFloat((100 * num) / 10).toFixed(1)
+}

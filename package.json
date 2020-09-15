@@ -1,46 +1,46 @@
 {
-  "name": "webpack-weapp",
-  "version": "1.0.0",
-  "description": "A Wechat-miniprogram built with webpack.",
-  "main": "index.js",
-  "author": "Sunnie",
-  "license": "MIT",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.conf.js --watch --inline --progress",
-    "stage": "cross-env NODE_ENV=staging webpack --config build/webpack.staging.conf.js",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js -p && gulp minify",
-    "add:page": "node build/wxapp.js --type=page --name",
-    "add:component": "node build/wxapp.js --type=component --name"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sunniejs/weapp-webpack.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sunniejs/weapp-webpack/issues"
-  },
-  "homepage": "https://github.com/sunniejs/weapp-webpack#readme",
-  "devDependencies": {
-    "@babel/core": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "cross-env": "^7.0.2",
-    "ensure-posix-path": "^1.1.1",
-    "file-loader": "^6.0.0",
-    "gulp": "^4.0.2",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-pretty-data": "^0.1.2",
-    "node-sass": "^4.14.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "replace-ext": "^2.0.0",
-    "required-path": "^1.0.1",
-    "safe-write-file": "^1.1.2",
-    "sass-loader": "^9.0.2",
-    "terser-webpack-plugin": "^1.3.0",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-merge": "^4.2.1"
-  }
+    "name": "webpack-weapp",
+    "version": "1.0.0",
+    "description": "A Wechat-miniprogram built with webpack.",
+    "main": "index.js",
+    "author": "Sunnie",
+    "license": "MIT",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.conf.js --watch --inline --progress",
+        "stage": "cross-env NODE_ENV=staging webpack --config build/webpack.staging.conf.js",
+        "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js -p",
+        "debug": "node --inspect-brk=5858 ./node_modules/.bin/webpack --config build/webpack.dev.conf.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sunniejs/weapp-webpack.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sunniejs/weapp-webpack/issues"
+    },
+    "homepage": "https://github.com/sunniejs/weapp-webpack#readme",
+    "devDependencies": {
+        "@babel/core": "^7.11.0",
+        "@babel/preset-env": "^7.11.0",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^5.1.1",
+        "cross-env": "^7.0.2",
+        "ensure-posix-path": "^1.1.1",
+        "file-loader": "^6.0.0",
+        "gulp": "^4.0.2",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-pretty-data": "^0.1.2",
+        "loader-utils": "^2.0.0",
+        "node-sass": "^4.14.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "replace-ext": "^2.0.0",
+        "required-path": "^1.0.1",
+        "safe-write-file": "^1.1.2",
+        "sass-loader": "^9.0.2",
+        "terser-webpack-plugin": "^1.3.0",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-merge": "^4.2.1"
+    }
 }

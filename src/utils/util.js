@@ -1,19 +1,16 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
+/**
+ * toast
+ * @param {String} title 标题
+ * @param {String} icon 图标
+ * @param {Function}} 回调方法
+ */
+export const toast = (title, icon, fn) => {
+    wx.showToast({
+        title: title,
+        icon: icon || 'none',
+        duration: 2000,
+        success: function () {
+            fn && fn()
+        }
+    })
 }

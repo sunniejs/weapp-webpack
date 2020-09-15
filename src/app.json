@@ -1,18 +1,18 @@
 {
-  "pages": ["pages/index/index", "pages/logs/logs"],
+    "pages": ["pages/index/index", "pages/logs/logs"],
 
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "subPackages": [
-    {
-      "root": "packAccount/",
-      "pages": ["index/index"]
-    }
-  ],
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "subPackages": [
+        {
+            "root": "subPack/",
+            "pages": ["index/index"]
+        }
+    ],
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

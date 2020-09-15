@@ -1,41 +1,74 @@
-## webpack 工程化小程序
+## webpack 构建小程序
 
->   组件引用，请使用相对当前页面位置
->   首次加载全局安装gulp
->   如果使用vscode ts文件在typings配置的的小程序api仍然报错，在ts右下角调整ts文件库的版本。
+小程序 webpack 工作流，用 webpack 构建小程序，支持小程序分包，ES6, 多环境配置，sass 开发
 
-## 项目结构
+✅ 配置多环境变量  
+✅ wx.request 封装
 
+## 开始使用
 
-### 小程序文件结构src
+**通过 git clone 下载项目文件。**
+
 ```
-├─ components		组件
-├─ css				样式
-├─ js				js脚本
-├─ utils			工具类脚本
-├─ wxs			   	存放wxs脚本（小程序的一套脚本语言）
-├─ pages		    小程序页面
-├─ service			数据请求
-├─ resources	    静态资源 
-app.js                              
-app.wxss            
-app.json
+ git clone https://github.com/sunniejs/weapp-webpack.git
+
 ```
 
-### 目录
-1. src -- 写<del>bug</del>代码的目录
-2. serve -- 微信开发者工具添加项目的项目地址
-3. dist -- 构建后的发布代码
-4. .tmp -- 一个隐藏目录，作为构建时使用的临时目录
+**安装依赖**
 
+```
+cd weapp-webpack
 
+ npm install
+ // or
+ yarn
+```
+
+**本地启动项目**
+
+```
+npm run dev
+// or
+yarn run dev
+```
+
+使用微信开发者工具打开 weapp-webpack 文件预览效果
 
 ### 构建命令
-1. npm run dev     // 编译开发环境
-2. npm run serve   // TODO:[待定] 编译开发环境并自动检测文件变更并实时编译，此功能需先在微信开发者工具设置中打开“保存自动编译小程序”设置
-3. npm run build   // 构建正式环境，构建在项目根目录下的dist文件夹
-4. npm run add:page -- /user/home [--title=页面标题] [--creator=创建人]  // 创建一个小程序空页面，页面放在src/pages/user/home
-5. npm run add:component -- /ui/dialog [--creator=创建人]               // 创建一个小程序空组件，组件放在src/components/ui/dialog
+
+1. npm run dev // 本地环境
+2. npm run stage // 构建测试环境，构建在项目根目录下的 dist 文件夹
+3. npm run build // 构建正式环境，构建在项目根目录下的 dist 文件夹
+
+### 文件结构
+
+```
+├──build	            	         # webpack构建小程序源码
+├──dist		                         # 构建后代码
+├──src                               # 小程序代码
+│   ├── api		                     # 数据请求
+│   ├── assets		               	 # 静态资源
+│   │   ├── index.scss               # 全局通用样式
+│   │   ├── mixin.scss               # 全局mixin
+│   │   └── variables.scss           # 全局变量
+│   ├── components		             # 组件
+│   ├── config		                 # 多环境配置文件
+│   ├── subPack			             # 分包
+│   ├── pages			             # 小程序页面
+│   ├── utils			             # 工具类脚本
+│   │   ├── filter.wxs               # wxs脚本
+│   │   └── utils.js                 # 工具类
+│   ├──app.js
+│   ├──app.wxss
+│   ├──app.json
 
 
-ps: tsconfig.json 中的types 和 typeRoots 配置目前还没有引入node_module的默认@/type 避免编辑器检查重复declare报错
+```
+
+# 关于我
+
+获取更多技术相关文章，关注公众号”前端女塾“，回复前端，即可加入”前端仙女群“。
+
+![logo](https://imgs.solui.cn/wx/640.gif ':size=262x224')
+
+如果对你有帮助送我一颗小星星（づ￣ 3 ￣）づ ╭❤ ～

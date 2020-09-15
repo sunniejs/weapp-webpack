@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-      昵称
+      昵称1
     </button>
     <block wx:else>
       <avator></avator>
