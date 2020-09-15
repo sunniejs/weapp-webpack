@@ -1,7 +1,4 @@
 {
-    "usingComponents": {
-        "avator": "../../components/avator/avator",
-        "demo": "../../components/demo/index",
-        "button": "../../components/button/index"
-    }
+  "usingComponents": {
+  }
 }

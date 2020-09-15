@@ -71,10 +71,7 @@ module.exports = {
             NODE_ENV: JSON.stringify(process.env.NODE_ENV) || 'development'
         }),
         new CleanWebpackPlugin({
-            verbose: true,
-            dry: true,
-            cleanStaleWebpackAssets: false,
-            cleanOnceBeforeBuildPatterns: ['dist']
+            cleanStaleWebpackAssets: false
         }),
         new MinaWebpackPlugin({
             scriptExtensions: ['.js', '.ts'],

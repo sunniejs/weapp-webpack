@@ -8,7 +8,7 @@
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.conf.js --watch --inline --progress",
         "stage": "cross-env NODE_ENV=staging webpack --config build/webpack.staging.conf.js",
-        "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js -p",
+        "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js -p && gulp minify",
         "debug": "node --inspect-brk=5858 ./node_modules/.bin/webpack --config build/webpack.dev.conf.js"
     },
     "repository": {

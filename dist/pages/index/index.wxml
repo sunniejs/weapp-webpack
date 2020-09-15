@@ -1,13 +1,8 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-      昵称1
-    </button>
-    <block wx:else>
-      <avator></avator>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+				<view class="title">
+								<image class="logo" src="https://imgs.solui.cn/weapp/logo.png" />
+								<view class="title-text"> Weapp Webpack</view>
+				</view>
+				<view class="desc">Webpack 构建小程序，让开发变得更简单</view>
 </view>

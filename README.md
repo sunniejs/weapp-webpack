@@ -1,9 +1,15 @@
 ## webpack 构建小程序
 
-小程序 webpack 工作流，用 webpack 构建小程序，支持小程序分包，ES6, 多环境配置，sass 开发
+小程序 webpack 工作流，用 webpack 构建小程序，支持小程序分包，ES6, 多环境配置，scss 开发
 
-✅ 配置多环境变量  
-✅ wx.request 封装
+## 支持
+
+✅ 支持分包开发  
+✅ 定义环境变量，配置多环境变量  
+✅ 生产代码压缩，压缩小程序包体积  
+✅ wx.request 封装  
+✅ 配置 alias 别名  
+✅ scss 编译 wxss, 高效开发，提高可维护性
 
 ## 开始使用
 
@@ -21,7 +27,7 @@ cd weapp-webpack
 
  npm install
  // or
- yarn
+ yarn install
 ```
 
 **本地启动项目**
