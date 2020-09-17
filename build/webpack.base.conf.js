@@ -4,7 +4,25 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MinaWebpackPlugin = require('./plugin/MinaWebpackPlugin')
 const WxRuntimePlugin = require('./plugin/WxRuntimePlugin')
 const webpack = require('webpack')
-console.log('构建环境：' + process.env.NODE_ENV)
+const fs = require('fs');
+
+const crrentEnv = process.env.NODE_ENV;
+console.log('构建环境：' + crrentEnv)
+
+const { appId } = require(`../src/config/env.${crrentEnv}`);
+// console.log('>>>>>>>>>>>>>>>>>developmentAppId ', appId)
+
+const updateAppid = function(appId, filePath) {
+    let data = fs.readFileSync(filePath);
+    let res = data.toString();
+    res = JSON.parse(res);
+    res.appid = appId;
+    // console.log('>>>>>>>update res ', res)
+    const finalRes = JSON.stringify(res, null, 2);
+    fs.writeFileSync(filePath, finalRes)
+}
+updateAppid(appId, './project.config.json');
+
 module.exports = {
     context: resolve('src'),
     entry: './app.js',
