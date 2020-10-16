@@ -2,7 +2,10 @@ import {toast} from '@/utils/util.js'
 import config from '@/config/index.js'
 Page({
     data: {
-        endDate: '2019/12/22 16:00:00'
+        list: ['✅ 支持分包开发', '✅ 定义环境变量，配置多环境变量', '✅ wx.request 封装', '✅ scss 编译 wxss, 高效开发，提高可维护性']
+    },
+    onLoad() {
+        toast('欢迎来到花花的世界')
     },
     /* 转发*/
     onShareAppMessage: function (ops) {

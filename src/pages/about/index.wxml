@@ -1,0 +1,19 @@
+<view class="about-container">
+    <view class="warpper">
+        <view class="list">
+            <view class="logo"></view>
+            <view class="demo-home__title">Weapp Webpack</view>
+            <view class="item">
+                项目地址:
+                <a href="https://github.com/sunniejs/weapp-webpack">
+                    https://github.com/sunniejs/weapp-webpack
+                </a>
+            </view>
+            <view class="item">项目作者: sunnie</view>
+            <view class="item"></view>
+            <view class="wechat"></view>
+            <view class="item">关注公众号：回复“加群”即可加 前端仙女群</view>
+            <view class="item">{{ userName }}</view>
+        </view>
+    </view>
+</view>

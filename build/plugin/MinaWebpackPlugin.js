@@ -75,6 +75,18 @@ function getConfigAsync(file) {
         return JSON.parse(matched.content)
     })
 }
+// 复制 project.config.json 修改appid
+function initPackages() {
+    const env = process.env.NODE_ENV
+    const project = path.resolve('project.config.json')
+    console.log(env)
+    //     let data = fs.readFileSync(project)
+    //     let res = data.toString()
+    //     res = JSON.parse(res)
+    //     res.appid = appId
+    //     const finalRes = JSON.stringify(res, null, 2)
+    //     fs.writeFileSync(project, finalRes)
+}
 
 class MinaWebpackPlugin {
     constructor(options = {}) {
@@ -85,25 +97,11 @@ class MinaWebpackPlugin {
 
     applyEntry(compiler, done) {
         const {context, entry} = compiler.options
-
         // assume the latest file in array is the app.js
         if (Array.isArray(entry)) {
             entry = entry[entry.length - 1]
         }
         //  src 文件夹
-
-        // getItems(context, entry).forEach(({isModule, request, fullpath}) => {
-        //     let url = path
-        //         .relative(context, fullpath)
-        //         // replace '..' to '_'
-        //         .replace(/\.\./g, '_')
-        //         // replace 'node_modules' to '_node_modules_'
-        //         .replace(/node_modules([\/\\])/g, '_node_modules_$1')
-        //     console.log(url)
-        //     let name = replaceExt(urlToRequest(url), '.js')
-        //     addEntry(context, this.map(ensurePosix(request)), ensurePosix(name)).apply(compiler)
-        // })
-        // getItems(context, entry)
         this.entries
             .map(item => first(item, this.scriptExtensions))
             .map(item => path.relative(context, item))
@@ -143,13 +141,14 @@ class MinaWebpackPlugin {
     }
     apply(compiler) {
         // const {context, entry} = compiler.options
+        // 修改appId
+        initPackages()
         // inflateEntries(this.entries, context, entry)
         compiler.hooks.entryOption.tap('MinaWebpackPlugin', () => {
             this.rewrite(compiler)
             //   this.applyEntry(compiler)
             return true
         })
-
         compiler.hooks.watchRun.tap('MinaWebpackPlugin', (compiler, done) => {
             this.rewrite(compiler, done)
             // this.applyEntry(compiler, done)

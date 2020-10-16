@@ -1,3 +1,12 @@
+html,
+body .app {
+  color: #333333;
+  font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
+  background-color: #f8f8f8; }
+
+.app-container {
+  padding-bottom: 50px; }
+
 /**app.wxss**/
 page {
   color: #333;

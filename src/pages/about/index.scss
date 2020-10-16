@@ -1,0 +1,48 @@
+// 支持文件
+.about-container {
+    /* 你的命名空间 */
+    background: #fff;
+    height: 100vh;
+    box-sizing: border-box;
+    .warpper {
+        padding: 100rpx 24rpx 24rpx 24rpx;
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+            font-size: 28rpx;
+            .demo-home__title {
+                margin: 0 0 12rpx;
+                font-size: 64rpx;
+                .demo-home__title img,
+                .demo-home__title span {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+            .item {
+                font-size: 28rpx;
+                line-height: 68rpx;
+                a {
+                    text-decoration: underline;
+                }
+                .van-button {
+                    /* vant-ui 元素*/
+                    background: #ff5500;
+                }
+            }
+
+            .logo {
+                width: 200rpx;
+                height: 200rpx;
+                background: url($IMG_CDN + 'weapp/logo.png') center / contain no-repeat;
+            }
+            .wechat {
+                width: 400rpx;
+                height: 400rpx;
+                background: url($IMG_CDN + 'wx/640.gif') center / contain no-repeat;
+            }
+        }
+    }
+}

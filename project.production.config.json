@@ -37,8 +37,8 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.10.2",
-    "appid": "wx964c60a9f3689cdf",
-    "projectname": "weapp-webpack-dev",
+    "appid": "234",
+    "projectname": "weapp-webpack-prod",
     "debugOptions": {
         "hidedInDevtools": []
     },

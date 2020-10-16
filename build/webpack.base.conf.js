@@ -4,24 +4,21 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MinaWebpackPlugin = require('./plugin/MinaWebpackPlugin')
 const WxRuntimePlugin = require('./plugin/WxRuntimePlugin')
 const webpack = require('webpack')
-const fs = require('fs');
-
-const crrentEnv = process.env.NODE_ENV;
-console.log('构建环境：' + crrentEnv)
-
-const { appId } = require(`../src/config/env.${crrentEnv}`);
-// console.log('>>>>>>>>>>>>>>>>>developmentAppId ', appId)
-
-const updateAppid = function(appId, filePath) {
-    let data = fs.readFileSync(filePath);
-    let res = data.toString();
-    res = JSON.parse(res);
-    res.appid = appId;
-    // console.log('>>>>>>>update res ', res)
-    const finalRes = JSON.stringify(res, null, 2);
-    fs.writeFileSync(filePath, finalRes)
+const fs = require('fs')
+const env = process.env.NODE_ENV
+console.log('构建环境：' + process.env.NODE_ENV)
+// 复制 project.config.json
+let copyPlugin = [
+    {
+        from: '**/*',
+        to: './',
+        ignore: ['**/*.js', '**/*.scss', '**/*.ts']
+    }
+]
+let project = resolve(`project.${env}.config.json`)
+if (fs.existsSync(project)) {
+    copyPlugin.push({from: `../project.${env}.config.json`, to: '../project.config.json'})
 }
-updateAppid(appId, './project.config.json');
 
 module.exports = {
     context: resolve('src'),
@@ -75,6 +72,10 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
+                            additionalData: `
+                            @import "assets/css/index.scss";
+                            $IMG_CDN: "https://imgs.solui.cn/";
+                            `,
                             sassOptions: {
                                 includePaths: [resolve('src', 'styles'), resolve('src')]
                             }
@@ -95,13 +96,7 @@ module.exports = {
             scriptExtensions: ['.js', '.ts'],
             assetExtensions: ['.scss']
         }),
-        new CopyWebpackPlugin([
-            {
-                from: '**/*',
-                to: './',
-                ignore: ['**/*.js', '**/*.scss', '**/*.ts']
-            }
-        ]),
+        new CopyWebpackPlugin(copyPlugin),
         new WxRuntimePlugin()
         // new HellowPlugin()
     ],

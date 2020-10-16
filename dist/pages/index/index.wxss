@@ -1,80 +1,36 @@
+html,
+body .app {
+  color: #333333;
+  font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
+  background-color: #f8f8f8; }
+
+.app-container {
+  padding-bottom: 50px; }
+
+page {
+  background: #f8f8f8; }
+
 .container {
-  padding: 45px 20px 20px; }
-
-.index-bd {
-  padding: 0 30rpx 40rpx; }
-
-.index-ft {
-  padding-bottom: 20rpx;
-  text-align: center; }
-
-.index-desc {
-  margin-top: 20rpx;
-  color: #888;
-  font-size: 28rpx; }
-
-.navigator {
-  position: relative;
-  display: block;
-  display: flex;
-  align-items: center;
-  width: 100%; }
-
-.kind-list-item {
-  margin: 20rpx 0;
-  background-color: #fff;
-  border-radius: 4rpx;
-  overflow: hidden; }
-
-.kind-list-item:first-child {
-  margin-top: 0; }
-
-.kind-list-text {
-  flex: 1;
-  font-size: 32rpx; }
-
-.kind-list-arraw {
-  width: 28px;
-  height: 28px;
-  font-size: 26px; }
-
-.kind-list-item-hd {
-  padding: 20rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: opacity 0.3s; }
-
-.kind-list-item-hd-show {
-  opacity: 0.2; }
-
-.kind-list-item-bd {
-  height: 0;
-  overflow: hidden; }
-
-.kind-list-item-bd-show {
-  height: auto; }
-
-.title {
-  padding-left: 15px;
-  margin-bottom: 10px; }
-
-.logo,
-.title-text {
-  display: inline-block;
-  vertical-align: middle; }
-
-.title-text {
-  font-size: 32px;
-  font-weight: 500;
-  margin-left: 15px; }
-
-.logo {
-  width: 36px;
-  height: 36px; }
-
-.desc {
-  font-size: 14px;
-  color: #7d7e80;
-  margin: 0 0 45px;
-  padding-left: 15px; }
+  padding: 45rpx 32rpx;
+  background: #fff; }
+  .container .index-bd .title {
+    margin-bottom: 20rpx; }
+    .container .index-bd .title .logo {
+      width: 72rpx;
+      height: 72rpx; }
+    .container .index-bd .title .logo,
+    .container .index-bd .title .title-text {
+      display: inline-block;
+      vertical-align: middle; }
+    .container .index-bd .title .title-text {
+      font-size: 50rpx;
+      font-weight: 500;
+      margin-left: 20rpx; }
+  .container .index-bd .desc {
+    font-size: 28rpx;
+    color: #7d7e80;
+    padding-left: 120rpx; }
+  .container .list .item {
+    font-size: 28rpx;
+    padding: 24rpx 0;
+    border-bottom: 1rpx solid #ebedf0; }

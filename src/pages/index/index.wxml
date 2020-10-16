@@ -1,8 +1,13 @@
 <!-- index.wxml -->
 <view class="container">
-				<view class="title">
-								<image class="logo" src="https://imgs.solui.cn/weapp/logo.png" />
-								<view class="title-text"> Weapp Webpack</view>
-				</view>
-				<view class="desc">Webpack 构建小程序，让开发变得更简单</view>
+    <view class="index-bd">
+        <view class="title">
+            <image class="logo" src="https://imgs.solui.cn/weapp/logo.png" />
+            <view class="title-text"> Weapp Webpack</view>
+        </view>
+        <view class="desc">Webpack 构建小程序，让开发变得更简单</view>
+    </view>
+    <view class="list">
+        <view wx:for="{{list}}" class="item">{{item}}</view>
+    </view>
 </view>
