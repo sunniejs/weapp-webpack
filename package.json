@@ -32,7 +32,7 @@
         "gulp-htmlmin": "^5.0.1",
         "gulp-pretty-data": "^0.1.2",
         "loader-utils": "^2.0.0",
-        "node-sass": "^4.14.0",
+        "node-sass": "^7.0.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "replace-ext": "^2.0.0",
         "required-path": "^1.0.1",
